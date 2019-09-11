@@ -1,10 +1,10 @@
 package medicalsoft;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Persona {
 
@@ -18,10 +18,11 @@ public class Persona {
     private String telefono = "";
     private String celular = "";
 
-    public Persona(String nom, String ape, String fec) {     //CONSTRUCTOR
+    public Persona(String nom, String ape, String fec, String email) {     //CONSTRUCTOR
         this.nombre = nom;
         this.apellido = ape;
         this.fecha_nacimiento = fec;
+        this.email= email;
     }
 
     public Persona() {
@@ -77,6 +78,22 @@ public class Persona {
     }
 
     public String getEmail() {
+        
+                 Pattern pattern = Pattern
+                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+ 
+        // El email a validar
+        String ema = "bradley3008@hotmail.com";
+ 
+        Matcher mather = pattern.matcher(ema);
+ 
+        if (mather.find() == true) {
+            System.out.println("El email ingresado es válido.");
+        } else {
+            System.out.println("El email ingresado es inválido.");
+        }
+        
         return email;
     }
 
@@ -100,26 +117,6 @@ public class Persona {
         this.celular = celular;
     }
 
-    /*public int edad(String Fecha_nacimiento){
-
-        Date fechaActual = new Date();
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        String hoy = formato.format(fechaActual);
-        String[] dat1 = Fecha_nacimiento.split("/");
-        String[] dat2 = hoy.split("/");
-        int fechas = Integer.parseInt(dat2[2]) - Integer.parseInt(dat1[2]);
-        int mes = Integer.parseInt(dat2[1]) - Integer.parseInt(dat1[1]);
-        if (mes < 0) {
-            fechas = fechas - 1;
-        } else if (mes == 0) {
-            int dia = Integer.parseInt(dat2[0]) - Integer.parseInt(dat1[0]);
-            if (dia > 0) {
-                fechas = fechas - 1;
-            }
-        }
-
-    return fechas;
-    }*/
     public int getEdad() {
 
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -127,7 +124,7 @@ public class Persona {
         LocalDate ahora = LocalDate.now();
 
         Period periodo = Period.between(fechaNac, ahora);
-        
+
         return periodo.getYears();
     }
 
@@ -140,5 +137,7 @@ public class Persona {
 
         return this.nombre + " " + "" + this.apellido;
     }
+
+
 
 }

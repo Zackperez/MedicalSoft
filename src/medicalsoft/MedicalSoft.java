@@ -13,7 +13,8 @@ public class MedicalSoft {
         medico1.setApellido("Perez");
         medico1.setFecha_nacimiento("30/11/1999");
         
-        System.out.println("El medico "+medico1.getFullName()+" y su edad es: "+medico1.getEdad()+"");
+        System.out.println("Nombre y Apellidos: "+medico1.getFullName()+" y su edad es: "+medico1.getEdad());
+        System.out.println(""+medico1.getEmail());
     }
 
 }
