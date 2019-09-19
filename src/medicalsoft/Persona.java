@@ -1,3 +1,4 @@
+
 package medicalsoft;
 
 import java.time.LocalDate;
@@ -8,29 +9,34 @@ import java.util.regex.Pattern;
 
 public class Persona {
 
-    private String nombre = "";
-    private String apellido = "";
-    private String fecha_nacimiento = "";
-    private String identificacion = "";
-    private String genero = "";
-    private String direccion = "";
-    private String email = "";
-    private String telefono = "";
-    private String celular = "";
+    private String nombre;
+    private String apellido ;
+    private String fecha_nacimiento ;
+    private String identificacion;
+    private String genero ;
+    private String direccion ;
+    private String email ;
+    private String telefono;
+    private String celular;
 
-    public Persona(String nom, String ape, String fec, String email) {     //CONSTRUCTOR
-        this.nombre = nom;
-        this.apellido = ape;
-        this.fecha_nacimiento = fec;
-        this.email= email;
-    }
+
 
     public Persona() {
+        
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.identificacion = identificacion;
+        this.genero = genero;
+        this.direccion = direccion;
+        this.email = email;
+        this.telefono = telefono;
+        this.celular = celular;
 
     }
 
     public String getNombre() {
-        return nombre.toLowerCase();
+        return nombre.toUpperCase();
     }
 
     public void setNombre(String nombre) {
@@ -78,22 +84,6 @@ public class Persona {
     }
 
     public String getEmail() {
-        
-                 Pattern pattern = Pattern
-                .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
- 
-        // El email a validar
-        String ema = "bradley3008@hotmail.com";
- 
-        Matcher mather = pattern.matcher(ema);
- 
-        if (mather.find() == true) {
-            System.out.println("El email ingresado es válido.");
-        } else {
-            System.out.println("El email ingresado es inválido.");
-        }
-        
         return email;
     }
 
@@ -128,10 +118,6 @@ public class Persona {
         return periodo.getYears();
     }
 
-    public boolean validateEmail() {
-
-        return true;
-    }
 
     public String getFullName() {
 
