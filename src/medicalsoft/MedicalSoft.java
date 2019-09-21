@@ -1,14 +1,14 @@
 package medicalsoft;
+import medicalsoft.Interfaz.Ventana;
 import medicalsoft.Validaciones.Validar;
 
 
 public class MedicalSoft {
 
     public static void main(String[] args) {
-        
-        /*Medico primerMedico = new Medico("Zack","Perez");
-        System.out.println(primerMedico.getNombre());
-        System.out.println(primerMedico.getApellido);*/
+
+        Ventana v = new Ventana();
+        v.setVisible(true);
         
         Medico medico1 = new Medico();
         medico1.setNombre("Zack");
